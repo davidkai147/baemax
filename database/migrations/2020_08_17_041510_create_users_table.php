@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('phone_number');
             $table->string('password')->nullable();
             $table->timestamps();
-            $table->softDeletes();
 
             $table->index('created_at');
             $table->index('deleted_at');
