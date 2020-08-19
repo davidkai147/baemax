@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->index('created_at');
-            $table->index('deleted_at');
         });
     }
 
