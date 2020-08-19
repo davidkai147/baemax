@@ -21,11 +21,13 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('type');
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('phone_number');
+            $table->string('phone_number')->unique();
             $table->string('password')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->index('created_at');
+            $table->index('deleted_at');
         });
     }
 
