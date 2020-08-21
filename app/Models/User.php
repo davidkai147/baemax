@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Lumen\Auth\Authorizable;
 
 /**
  * Class User
@@ -14,8 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $phoneNumber
  * @property string $password
  */
-class User extends Model
+class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
+    use Authenticatable, Authorizable;
+
     const TYPE_ADMIN = 1;
     const TYPE_USER = 2;
     const TYPE_SHIPPER = 3;
@@ -36,6 +42,7 @@ class User extends Model
 
     protected $hidden = [
         'password',
+        'remember_token',
     ];
 
 }
