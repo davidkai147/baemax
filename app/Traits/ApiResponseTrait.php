@@ -24,7 +24,7 @@ trait ApiResponseTrait
      * @param int $code
      * @return JsonResponse
      */
-    public function responseError($message, $code = Response::HTTP_OK)
+    public function responseError($message, $code)
     {
         return response()->json(['error' => $message], $code);
     }
